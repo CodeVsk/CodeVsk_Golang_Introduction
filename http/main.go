@@ -17,6 +17,6 @@ func main() {
 	http.HandleFunc("/capybara", capybara)
 
 	if err := http.ListenAndServe(":3000", nil); err != nil {
-		log.Fatal("Erro ao inicializar o serivodor http", err)
+		log.Fatal("Erro ao inicializar o servidor http", err)
 	}
 }
