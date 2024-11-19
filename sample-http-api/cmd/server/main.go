@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/codevsk/golang/simple-api/internal/infra/database"
-	"github.com/codevsk/golang/simple-api/internal/infra/repository"
-	"github.com/codevsk/golang/simple-api/internal/service"
+	"github.com/codevsk/golang/sample-http-api/internal/infra/database"
+	"github.com/codevsk/golang/sample-http-api/internal/infra/repository"
+	"github.com/codevsk/golang/sample-http-api/internal/service"
 	"github.com/google/uuid"
 )
 

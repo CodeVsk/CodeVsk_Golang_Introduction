@@ -1,8 +1,8 @@
 package service
 
 import (
-	contract "github.com/codevsk/golang/simple-api/internal/contract/repository"
-	"github.com/codevsk/golang/simple-api/internal/dto"
+	contract "github.com/codevsk/golang/sample-http-api/internal/contract/repository"
+	"github.com/codevsk/golang/sample-http-api/internal/dto"
 	"github.com/google/uuid"
 )
 

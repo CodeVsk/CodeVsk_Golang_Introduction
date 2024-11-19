@@ -1,4 +1,4 @@
-module github.com/codevsk/golang/simple-api
+module github.com/codevsk/golang/sample-http-api
 
 go 1.20
 

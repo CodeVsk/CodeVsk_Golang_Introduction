@@ -1,7 +1,7 @@
 package contract
 
 import (
-	"github.com/codevsk/golang/simple-api/internal/entity"
+	"github.com/codevsk/golang/sample-http-api/internal/entity"
 	"github.com/google/uuid"
 )
 
