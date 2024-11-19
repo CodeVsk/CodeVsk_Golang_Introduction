@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/codevsk/simple-rabbitmq-go/internal/event"
-	"github.com/codevsk/simple-rabbitmq-go/pkg/rabbitmq"
+	"github.com/codevsk/golang/sample-rabbitmq-go/internal/event"
+	"github.com/codevsk/golang/sample-rabbitmq-go/pkg/rabbitmq"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 

@@ -1,4 +1,4 @@
-module github.com/codevsk/simple-rabbitmq-go
+module github.com/codevsk/golang/sample-rabbitmq-go
 
 go 1.20
 
