@@ -9,7 +9,7 @@ import (
 
 func main() {
 	ctx := context.Background()
-	ctx, cancel := context.WithTimeout(ctx, time.Millisecond * 1)
+	ctx, cancel := context.WithTimeout(ctx, time.Second * 1)
 
 	defer cancel()
 
