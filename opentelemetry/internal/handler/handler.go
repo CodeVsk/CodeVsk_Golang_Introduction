@@ -4,7 +4,9 @@ import (
 	"net/http"
 
 	"github.com/CodeVsk/CodeVsk_Golang_Introduction/opentelemetry/internal/service"
+	"github.com/CodeVsk/CodeVsk_Golang_Introduction/opentelemetry/pkg/logger"
 	"github.com/CodeVsk/CodeVsk_Golang_Introduction/opentelemetry/pkg/otel"
+	"go.uber.org/zap"
 )
 
 type Handler struct {
@@ -23,6 +25,8 @@ func (h *Handler) Get(w http.ResponseWriter, r *http.Request) {
 	defer span.End()
 
 	h.Service.Get(ctx)
+
+	logger.Info("Get Success", zap.String("journey", "GetService"))
 
 }
 
