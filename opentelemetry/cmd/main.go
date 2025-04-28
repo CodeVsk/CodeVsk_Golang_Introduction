@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-	tracer, err := otel.NewTracer("fresh-market").UseJaeger("http://localhost:14268/api/traces").Init()
+	tracer, err := otel.NewTracer("fresh-market").UseJaeger("http://jaeger:14268/api/traces").Init()
 	if err != nil {
 		log.Fatal(err)
 	}
