@@ -27,7 +27,7 @@ func init() {
 			EncodeDuration: zapcore.StringDurationEncoder,
 			EncodeCaller:   zapcore.ShortCallerEncoder,
 		},
-		OutputPaths:      []string{"stdout"},
+		OutputPaths:      []string{"stdout", "logs/output.log"},
 		ErrorOutputPaths: []string{"stderr"},
 	}
 
