@@ -7,6 +7,7 @@ import (
 	"go.opentelemetry.io/otel/exporters/stdout/stdoutmetric"
 	"go.opentelemetry.io/otel/sdk/metric"
 	"go.opentelemetry.io/otel/sdk/resource"
+
 	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
 
 	metric_meter "go.opentelemetry.io/otel/metric"
@@ -57,7 +58,7 @@ func (o *OtelMeter) SetPeriodicReader(seconds int) *OtelMeter {
 	return o
 }
 
-func (o *OtelMeter) Init() (*metric.MeterProvider, error) {
+func (o *OtelMeter) Init() (*metric.MeterProvider, *OtelMeter, error) {
 	meterProvider := metric.NewMeterProvider(
 		metric.WithResource(resource.NewWithAttributes(
 			semconv.SchemaURL,
@@ -67,5 +68,5 @@ func (o *OtelMeter) Init() (*metric.MeterProvider, error) {
 
 	Meter = meterProvider.Meter(o.Name)
 
-	return meterProvider, nil
+	return meterProvider, o, nil
 }

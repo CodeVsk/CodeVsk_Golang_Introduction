@@ -21,11 +21,15 @@ func main() {
 	}
 	defer tracer.Shutdown(context.Background())
 
-	meter, err := otel.NewMeter("fresh-market").UsePrometheus().Init()
+	meter, otelMeter, err := otel.NewMeter("fresh-market").UsePrometheus().Init()
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer meter.Shutdown(context.Background())
+
+	if err := otelMeter.UseRecordMetrics().Init(); err != nil {
+		log.Fatal(err)
+	}
 
 	if err := middleware.InitMetrics(); err != nil {
 		log.Fatal(err)
@@ -37,7 +41,7 @@ func main() {
 
 	ch := chi.NewRouter()
 	ch.Use(middleware.HTTPRequestCounter)
-	ch.Get("/test", h.Get)
+	ch.Get("/", h.Get)
 	ch.Post("/", h.Add)
 	ch.Get("/metrics", promhttp.Handler().ServeHTTP)
 
