@@ -32,7 +32,11 @@ func main() {
 	fmt.Println(len(slice_words3))
 	fmt.Println(cap(slice_words3))
 
+	remove_words := []string {"a", "b", "c"}
 
+	fmt.Println(remove_words)
 
+	remove_words = remove_words[1:]
 
+	fmt.Println(remove_words)
 }
