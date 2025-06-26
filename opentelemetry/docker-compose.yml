@@ -50,9 +50,12 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: elasticsearch
+    environment:
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - ES_JAVA_OPTS=-Des.security.manager=false
     volumes:
       - ./resources/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - elasticsearch-data:/usr/share/elasticsearch/data
+    #- elasticsearch-storage:/usr/share/elasticsearch/data
     healthcheck:
       test: ["CMD", "curl", "-s", "-f", "http://localhost:9200/_cat/health"]
       interval: 3s
@@ -64,7 +67,7 @@ services:
       - opentelemetry
 
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.6.2
+    image: docker.elastic.co/logstash/logstash:7.17.28
     container_name: logstash
     ports:
       - "5044:5044"
@@ -109,5 +112,5 @@ networks:
     driver: bridge
 
 volumes:
-  elasticsearch-data:
+  elasticsearch-storage:
   grafana-storage:
